@@ -1,0 +1,56 @@
+system to tag content - add/remove/update
+view content by tag
+dashboard of popular tags
+
+
+URN: <namespace>:<pk>
+jira:ABC-123
+conf:space/page-id
+
+tags
+----
+tag_id
+text
+
+1/design
+2/ER
+
+product
+----
+urn
+get_url
+
+mapping
+-----
+tag_id
+urn
+
+1/jira:abc-123
+2/space/page-id
+
+stats
+------
+tag_id
+count
+
+
+POST /{urn}/tags
+ - create tag on content
+
+GET /{urn}/tags
+  - get all tags on a content
+
+PUT /tags/{tag_id}
+  - update tag text
+
+DELETE /{urn}/tags/{tag_text}
+  - remove a tag from content
+
+GET /tags/{tag_id}
+GET /tags/{tag_text}?pageSize=10&pageNumber=1
+?pagetoken={}
+  - get tag and related content
+
+GET /stats
+  - get top tags and associated count(usage)
+

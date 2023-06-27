@@ -1,0 +1,13 @@
+* Store of files
+* grouped into collections
+* Where resources are being taken up
+
+example: total size of all files stored
+top-n collections by file size - give top 10 collections by file size
+
+file1.txt (size: 100)
+file2.txt (size: 200) in collection "collection1"
+file3.txt (size: 200) in collection "collection1"
+file4.txt (size: 300) in collection "collection2"
+file5.txt (size: 10)
+

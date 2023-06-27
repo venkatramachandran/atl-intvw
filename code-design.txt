@@ -1,0 +1,30 @@
+interface Router {
+    void withRoute(String path, String result);
+    String route(String path);
+}
+
+Router.addRoute("/bar", "result")
+Router.route("/bar") -> "result"
+
+router.withRoute("/foo", "foo")
+
+
+router.withRoute("/bar/*/baz", "bar")
+Router.route("/bar/abc/xxy/baz”) -> "result"
+
+
+1. are the paths nested? /bar & /bar/{id}
+2. what to do if a duplicate is added? throw an error
+3. NFR - 
+
+          /
+-----------------------------
+|          |
+bar        baz
+|          |
+*          abc   
+
+
+/abc/1/def
+
+/abc/*/def
