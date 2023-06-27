@@ -12,7 +12,7 @@ class Router implements IRouter {
         // error handling
         if (routes.containsKey(path))
             throw new IllegalArgumentException("path "+path+" already exists");
-        routes.put(path.replace("*", ".*").replace("/", "\/"), result);
+        routes.put(path.replace("*", ".*").replace("/", "\\/"), result);
     }
 
     @Override
@@ -22,9 +22,8 @@ class Router implements IRouter {
             return retVal;
         }
         for (String input : routes.keySet()) {
-            System.out.printf("input is %s, path is %s\n", input, path);
             if (path.matches(input)) {
-                return routes.get(path);
+                return routes.get(input);
             }
         }
         return null;
@@ -57,10 +56,10 @@ class Router implements IRouter {
         router.withRoute("/xyz/*/123/*/def", "3");
         
 
-        //System.out.printf("/bar is mapped to %s, must be bar\n", router.route("/bar"));
-        //System.out.printf("/abc/1/def is mapped to %s, must be first\n", router.route("/abc/1/def"));
-        //System.out.printf("/abc/xyz/def is mapped to %s, must be second\n", router.route("/abc/xyz/def"));
-        //System.out.printf("/abc/xyz/1/def is mapped to %s, must be second\n", router.route("/abc/xyz/1/def"));
+        System.out.printf("/bar is mapped to %s, must be bar\n", router.route("/bar"));
+        System.out.printf("/abc/1/def is mapped to %s, must be first\n", router.route("/abc/1/def"));
+        System.out.printf("/abc/xyz/def is mapped to %s, must be second\n", router.route("/abc/xyz/def"));
+        System.out.printf("/abc/xyz/1/def is mapped to %s, must be second\n", router.route("/abc/xyz/1/def"));
         System.out.printf("/xyz/ttt/123/ss/def is mapped to %s, must be 3\n", router.route("/xyz/ttt/123/ss/def"));
     }
 }
